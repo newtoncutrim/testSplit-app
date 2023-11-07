@@ -6,6 +6,15 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+            args:
+                - user=carlos
+                - uid=1000
+                - NODE_VERSION=14
+                - NPM_VERSION=7
+                - CURL_VERSION=latest
+                - INSTALL_NODE=true
+                - INSTALL_NPM=true
+                - INSTALL_CURL=true
         restart: unless-stopped
         working_dir: /var/www/
         volumes:
@@ -20,7 +29,7 @@ services:
         image: nginx:alpine
         restart: unless-stopped
         ports:
-            - "8000:80"
+            - "8989:80"
         volumes:
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
@@ -66,7 +75,3 @@ services:
 networks:
     laravel:
         driver: bridge
-
-# composer installl
-# cp .env
-# generate key
