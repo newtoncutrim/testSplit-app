@@ -46,7 +46,7 @@ class UserApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserCreateRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         $this->service->updateUser($request->all(), $id);
         $data = $this->service->findOne($id);
@@ -61,6 +61,6 @@ class UserApiController extends Controller
     {
         $this->service->delete($id);
 
-        return response()->json(["message" => "Task deleted successfully"], Response::HTTP_OK);
+        return response()->json(["message" => "User deleted successfully"], Response::HTTP_OK);
     }
 }
