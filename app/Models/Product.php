@@ -15,5 +15,10 @@ class Product extends Model
         'user_id'
     ];
 
+    public function products()
+    {
+    return $this->hasMany(Product::class);
+    }
+
     use HasFactory;
 }

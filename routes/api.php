@@ -31,9 +31,10 @@ Destroy: DELETE /api/tasks/{id} - Remove um recurso existente (tarefa) do banco 
 Route::middleware('auth:sanctum')->prefix('api')->group(function(){
     /* Route::apiResource('tasks', [TaskApiController::class]); */
 });
+Route::apiResource('/products', ProductApiController::class)->middleware('api');
 
 
-Route::apiResource('/products', ProductApiController::class);/* ->middleware('auth:sanctum'); */
+/* Route::apiResource('/products', ProductApiController::class); *//* ->middleware('auth:sanctum'); */
 
 Route::apiResource('/users', UserApiController::class);
 

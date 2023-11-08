@@ -51,9 +51,9 @@ class ProductApiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): JsonResponse
+    public function store(ProductCreateRequest $request): JsonResponse
     {
-        /* dd($request->all()); */
+
         $task = $this->service->new($request->all());
 
         if (!$task) {

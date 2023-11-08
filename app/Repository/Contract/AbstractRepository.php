@@ -24,9 +24,6 @@ abstract class AbstractRepository implements InterfaceRepository {
 
     }
 
-    public function edit() {
-
-    }
 
     public function update($id, $request) {
         $data = $this->model->find($id);

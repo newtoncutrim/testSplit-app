@@ -38,11 +38,12 @@ class ProductService {
     }
 
     public function destroy($id){
-        if($id){
-            return $this->repository->delete($id);
+        if(!$id){
+            throw new \Exception('Registro não encontrado');
+
         }
 
-        return redirect()->back();
+        return $this->repository->delete($id);
     }
 
     public function dataFormat($data){
