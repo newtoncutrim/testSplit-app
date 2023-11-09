@@ -73,10 +73,9 @@ Exemplo de retorno de um cadastro paginado:
             "preco": 20.99,
             "quantidade": 200
         },
-        ...
    ]
 }
-
+```
 
 # API de Gerenciamento de Produtos e Usuários
 
@@ -183,7 +182,7 @@ docker-compose exec app php artisan test --env=test
 ```
 
 ## Exemplos de Códigos
-
+link do projeto http://localhost:8989/
 ### Json
 
 ```json
