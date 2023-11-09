@@ -17,7 +17,6 @@ class UserApiTest extends TestCase
      */
     public function test_user_index(): void
     {
-        /* User::factory()->count(5)->create(); */
 
         $response = $this->get('/api/users');
 

@@ -29,7 +29,7 @@ class ProductService {
 
     }
 
-    public function updateTask($request, string $id){
+    public function updateProduct($request, string $id){
         $product = $this->findOne($id);
         if (!$product) {
             throw new \Exception('Registro não encontrado');

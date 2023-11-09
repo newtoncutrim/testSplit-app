@@ -54,13 +54,13 @@ class ProductApiController extends Controller
     public function store(ProductCreateRequest $request): JsonResponse
     {
 
-        $task = $this->service->new($request->all());
+        $product = $this->service->new($request->all());
 
-        if (!$task) {
+        if (!$product) {
             return response()->json(["error" => "Failed to create the Product"], Response::HTTP_BAD_REQUEST);
         }
 
-        return response()->json(["message" => "Product created successfully", "data" => $task], Response::HTTP_CREATED);
+        return response()->json(["message" => "Product created successfully", "data" => $product], Response::HTTP_CREATED);
     }
 
     /**
@@ -68,13 +68,13 @@ class ProductApiController extends Controller
      */
     public function show(string $id): JsonResponse
     {
-        $task = $this->service->findOne($id);
+        $product = $this->service->findOne($id);
 
-        if (!$task) {
+        if (!$product) {
             return response()->json(["error" => "Product not found"], Response::HTTP_NOT_FOUND);
         }
 
-        return response()->json(["data" => $task], Response::HTTP_OK);
+        return response()->json(["data" => $product], Response::HTTP_OK);
     }
 
     /**
@@ -83,9 +83,9 @@ class ProductApiController extends Controller
     public function update(ProductCreateRequest $request, string $id): JsonResponse
     {
 
-        $this->service->updateTask($request->all(), $id);
-        $task = $this->service->findOne($id);
-        return response()->json(["message" => "Product updated successfully", "data" => $task], Response::HTTP_OK);
+        $this->service->updateProduct($request->all(), $id);
+        $product = $this->service->findOne($id);
+        return response()->json(["message" => "Product updated successfully", "data" => $product], Response::HTTP_OK);
     }
 
     /**
@@ -93,9 +93,9 @@ class ProductApiController extends Controller
      */
     public function destroy(string $id): JsonResponse
     {
-        $task = $this->service->findOne($id);
+        $product = $this->service->findOne($id);
 
-        if (!$task) {
+        if (!$product) {
             return response()->json(["error" => "Product not found"], Response::HTTP_NOT_FOUND);
         }
 
