@@ -53,6 +53,20 @@ services:
         networks:
             - laravel
 
+    db-test:
+        image: mysql:5.7.22
+        platform: linux/x86_64
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: test
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: root
+            MYSQL_USER: username
+        ports:
+            - "3366:3306"
+        networks:
+            - laravel
+
     # queue
     queue:
         image: especializati/laravel9-app

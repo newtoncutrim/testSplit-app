@@ -2,14 +2,16 @@
 
 namespace Tests\Feature;
 
+use Database\Seeders\UserSeeder;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ProductApiTest extends TestCase
 {
-    use RefreshDatabase;
     use WithFaker;
+
 
     public function testIndex()
     {
@@ -115,3 +117,7 @@ class ProductApiTest extends TestCase
     }
 }
 
+/* docker compose exec app php artisan migrate:refresh --env=test
+docker compose exec app php artisan db:seed --env=test
+docker compose exec app php artisan test --env=test
+ */
