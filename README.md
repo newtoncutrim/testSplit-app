@@ -159,10 +159,9 @@ cd testSplit-app
 2. Execute os seguintes comandos para configurar o ambiente:
 ```
 docker compose up -d --build
-docker compose exec app composer install
+composer install
 docker compose exec app cp .env.example .env
 docker compose exec app php artisan key:generate
-docker compose exec app php artisan migrate
 ```
 3. Configure o arquivo `.env` com as seguintes configurações para o ambiente de desenvolvimento:
 
@@ -176,14 +175,14 @@ DB_PASSWORD=root
 ```
 4. Para popular o Banco Laravel (usar api)
 ```
-docker-compose exec app php artisan migrate
-docker-compose exec app php artisan db:seed
+docker compose exec app php artisan migrate
+docker compose exec app php artisan db:seed
 ```
 5. Para realizar testes de TDD, utilize os seguintes comandos Banco teste:
 ```
-docker-compose exec app php artisan migrate:refresh --env=test
-docker-compose exec app php artisan db:seed --env=test
-docker-compose exec app php artisan test --env=test
+docker compose exec app php artisan migrate:refresh --env=test
+docker compose exec app php artisan db:seed --env=test
+docker compose exec app php artisan test --env=test
 ```
 
 ## Exemplos de Códigos
