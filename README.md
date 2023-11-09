@@ -154,6 +154,7 @@ Para configurar e executar o aplicativo em um ambiente local:
 1. Clone o repositório.
 ```
 git clone https://github.com/newtoncutrim/testSplit-app.git
+cd testSplit-app
 ```
 2. Execute os seguintes comandos para configurar o ambiente:
 ```
