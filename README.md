@@ -142,22 +142,26 @@ A autenticação JWT (JSON Web Token) é usada para proteger as rotas da API. Pa
 
 ## Configuração e Requisitos
 
-- O aplicativo requer o framework Laravel instalado.
 - Docker instalado
-- Composer instalado
+
+- Linux https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+- Windows https://docs.docker.com/desktop/install/windows-install/
 
 ## Instruções de Execução
 
 Para configurar e executar o aplicativo em um ambiente local:
 
 1. Clone o repositório.
+```
+git clone https://github.com/newtoncutrim/testSplit-app.git
+```
 2. Execute os seguintes comandos para configurar o ambiente:
 ```
-docker-compose up -d --build
-docker-compose exec app composer install
-docker-compose exec app cp .env.example .env
-docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan migrate
+docker compose up -d --build
+docker compose exec app composer install
+docker compose exec app cp .env.example .env
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan migrate
 ```
 3. Configure o arquivo `.env` com as seguintes configurações para o ambiente de desenvolvimento:
 
@@ -254,4 +258,4 @@ Este aplicativo/API é disponibilizado sob a licença MIT.
 ## Contato
 
 - E-mail: newtonplay007@gmail.com
-- Telefone: 98 984212805
+- Telefone: (98) 984212805
