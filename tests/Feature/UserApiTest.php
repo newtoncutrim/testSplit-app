@@ -2,10 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserApiTest extends TestCase
 {
@@ -34,29 +35,29 @@ class UserApiTest extends TestCase
      * Testa a criação de um usuário.
      */
     public function test_user_creation(): void
-    {
-        $userData = [
-            'name' => 'John Doe',
-            'email' => 'john@example.com',
-            'password' => bcrypt('password123'),
-        ];
+{
+    $userData = [
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+        'password' => 'Password1!', // Atende aos requisitos: 1 letra maiúscula, 1 caractere especial, 8 dígitos
+    ];
 
-        $user = User::create($userData);
+    $response = $this->post('/api/users', $userData);
 
-        $response = $this->post('/api/users', $userData);
+    $response->assertStatus(201)
+        ->assertJson([
+            'message' => 'User created successfully',
+            'data' => [
+                'id' => $response['data']['id'],
+                'name' => 'John Doe',
+                'email' => 'john@example.com',
+            ],
+        ]);
 
-        $response->assertStatus(201)
-            ->assertJson([
-                'message' => 'User created successfully',
-                'data' => [
-                    'id' => $user->id,
-                    'name' => 'John Doe',
-                    'email' => 'john@example.com',
-                ],
-            ]);
+    $this->assertDatabaseHas('users', ['email' => 'john@example.com']);
+    $this->assertTrue(Hash::check('Password1!', User::find($response['data']['id'])->password));
+}
 
-        $this->assertDatabaseHas('users', ['email' => 'john@example.com']);
-    }
 
     /**
      * Testa a exibição de um usuário específico.

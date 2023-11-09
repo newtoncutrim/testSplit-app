@@ -117,7 +117,9 @@ class ProductApiTest extends TestCase
     }
 }
 
-/* docker compose exec app php artisan migrate:refresh --env=test
+/*
+
+docker compose exec app php artisan migrate:refresh --env=test
 docker compose exec app php artisan db:seed --env=test
 docker compose exec app php artisan test --env=test
  */
