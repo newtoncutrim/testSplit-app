@@ -47,7 +47,7 @@
         <p>Esperamos que você aproveite sua visita!</p>
 
         <div class="navigation">
-            <a href="#">Sobre</a>
+            <a href="https://github.com/newtoncutrim/testSplit-app" target="_blank">Sobre</a>
         </div>
     </div>
 </body>
