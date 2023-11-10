@@ -159,7 +159,7 @@ cd testSplit-app
 2. Execute os seguintes comandos para configurar o ambiente:
 ```
 docker compose up -d --build
-composer install
+docker compose exec app composer install
 docker compose exec app cp .env.example .env
 docker compose exec app php artisan key:generate
 ```
